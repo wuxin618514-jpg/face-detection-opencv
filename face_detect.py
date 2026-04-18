@@ -1,32 +1,34 @@
-import cv2
+import cv2 # import openCV
 
-# Load the pre-trained Haar Cascade classifier for face detection
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+alg = 'haarcascade_frontalface_default.xml'  # accessed the model file
 
-# Start video capture from webcam (0 = default webcam)
-cap = cv2.VideoCapture(0)
+cascade = cv2.CascadeClassifier(alg) # loading the model with cv2
+
+cam = cv2.VideoCapture(0) # initialization camera
 
 while True:
-    # Read each frame from the webcam
-    ret, frame = cap.read()
     
-    # Convert the frame to grayscale (required for Haar cascades)
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    _,img = cam.read() # read the frame from the camera
+    
+    grayImg = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) # converting color into gray scale image
 
-    # Detect faces (returns list of rectangles)
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+    face = cascade.detectMultiScale(grayImg) # get coordinates of face
 
-    # Draw rectangles around detected faces
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    for (x, y, w, h) in face: # segregating x,y,w,h
+        
+        cv2.rectangle(img, (x, y), (x + w, y + h),(0,255,0),2) # draw the retangle
 
-    # Show the frame with rectangles
-    cv2.imshow('Face Detection', frame)
+    cv2.imshow("FaceDetect",img)
 
-    # Exit when 'q' is pressed
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key = cv2.waitKey(1)
+
+    if key == 81 or key == 113 :
         break
 
-# Release resources
-cap.release()
+cam.release()
 cv2.destroyAllWindows()
+        
+
+    
+
+ 
