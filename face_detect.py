@@ -38,7 +38,7 @@ def detect_faces_in_camera():
             break
     
     cap.release()
-    cv2.destroyAllWindows()
+    cv2.destroyAllWindows() 
 
 # main menu
 if __name__ == "__main__":
