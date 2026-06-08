@@ -1,10 +1,10 @@
 # 🚀 MIEC CS183: High-Performance Face Detection System (From Baseline to Deep Learning)
 
 ## 👥 Team Information (Form 1–4)
-* **Team ID**: T07 
+* **Team ID**: T7 
 * **Team Leader MU ID**: 25126784 
-* **Team Leader MU Email**: leader@mu.edu.cn *(Please update to your official school email)*
-* **Project Group Name**: [Mentor]-[ID]-Face Detection Tool *(Format: [Mentor Name]-[Project ID]-[Full Title], e.g., WangLi-P04-Face Detection Tool)*
+* **Team Leader MU Email**: BOHUA.WU.2026@mumail.ie 
+* **Project Group Name**: Srikanta Pal-T7-Face Detection Technique 
 * **GitHub Repository URL**: (https://github.com/wuxin618514-jpg/face-detection-opencv)
 
 ---
