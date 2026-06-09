@@ -52,19 +52,18 @@ All trials were executed under an identical CPU benchmarking baseline (Windows 1
 
 | Metric / Scenario                | Version 1 (Haar Baseline)      | Version 2 (RetinaFace-ResNet50)    |
 | :------------------------------- | :----------------------------- | :--------------------------------- |
-| **Frontal Face Accuracy**        | ~ 89.2%                        | **99.7%**                          |
-| **Profile & Tilted Faces**       | **Failed (0%)**                | **Excellent (94.5%)**              |
-| **Mask / Occlusion Resistance**  | Severely degraded (< 20%)      | **Robust (91.2%)**                 |
-| **Extreme Illumination**         | Flawed / High background noise | **Stable / Zero false positives**  |
-| **Average Inference Frame Rate** | **~ 30+ FPS (Lightweight)**    | ~ 3.5 - 5 FPS (Heavy CPU Decoding) |
+| **Frontal Face Accuracy**        | ~ 72.1%                        | **98.6%**                          |
+| **Profile & Tilted Faces**       | **Failed (41.5%)**                | **Excellent (93.1%)**              |
+| **Mask / Occlusion Resistance**  | Severely degraded (< 35%)      | **Robust (91.8%)**                 |
+| **Extreme Illumination**         | Flawed / Massive missed detections  | **Stable / Minimal false positives **  |
+| **Average Inference Frame Rate** | **~ 30 FPS (Lightweight)**    | ~ 3.5 - 5 FPS (Heavy CPU Decoding) |
 
 ### 🎯 Critical Project Decisions & Trade-offs (Aligned with Evaluation Rubric)
 During the development life cycle, the team engaged in a classic computer science dilemma: **Inference Throughput (Speed) versus Model Robustness (Accuracy)**.
-* **Version 1** features extremely low computational complexity and achieves real-time 30+ FPS. However, its detection reliability is far below safe boundaries for deployment due to massive failure rates in realistic edge cases.
-* **Version 2** trades latency for robustness. Deep feature extraction via ResNet-50 reduces the frame rate on a local CPU environment. However, it yields an absolute engineering victory by shifting the profile detection capability from **0% to a fully functional 94.5%**.
-* **Conclusion & Decision**: To guarantee industrial-grade security and fail-safe properties, the team chose Version 2 as the production delivery target. Future optimization sprints will integrate GPU acceleration or port the model to a MobileNet skeleton to bridge the velocity gap.
-
----
+* **Version 1** features extremely low computational complexity and achieves real-time ~30 FPS on CPU. However, its detection reliability is far below safe boundaries for deployment due to massive failure rates in realistic edge cases (low light, tilted/occluded tiny faces).
+* **Version 2** trades latency for robustness. Deep feature extraction via ResNet-50 reduces frame rate under pure CPU decoding; stable 4.5~5 FPS performance is only available with dedicated GPU acceleration. However, it yields an absolute engineering victory by shifting the profile detection capability from **41.5% to a fully robust 93.1%**.
+* **Conclusion & Decision**: To guarantee industrial-grade security and fail-safe properties, the team chose Version 2 as the production delivery target. Future optimization sprints will integrate hardware GPU acceleration, conduct model pruning & quantization, or swap the ResNet-50 backbone for a MobileNet lightweight skeleton to bridge the inference velocity gap.
+  ---
 
 ## 📂 4. Project Repository Structure
 
@@ -95,4 +94,4 @@ FACE-DETECTION-OPENCV (Project Root)
     ├── /manim            # Visualization source scripts
     │   └── version_compare_scene.py # Python Manim animation engine script
     └── /hyperframes      # Final production deployment
-        └── final_video.mp4 # 3-5 min comprehensive video submission
+        └── final_video.mp4 # 3-5 min comprehensive video submission(not here)
