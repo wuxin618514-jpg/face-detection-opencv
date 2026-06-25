@@ -4,7 +4,7 @@
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Ross Girshick
 # --------------------------------------------------------
-
+#from github by 3
 import numpy as np
 
 def py_cpu_nms(dets, thresh):

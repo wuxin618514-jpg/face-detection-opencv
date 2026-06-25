@@ -1,4 +1,5 @@
-# config.py
+# config.py(from Github)
+#by 3
 
 cfg_mnet = {
     'name': 'mobilenet0.25',
