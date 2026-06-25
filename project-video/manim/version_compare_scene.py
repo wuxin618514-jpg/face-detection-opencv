@@ -177,3 +177,7 @@ class VersionCompareScene(Scene):
         label_v2_line = Text("V2 (RetinaFace): High Generalization Invariance", font_size=11, color=GREEN).move_to(UP * 2.2 + RIGHT * 1.8)
         self.play(Create(v2_line), Create(v2_dot1), Create(v2_dot2), FadeIn(label_v2_line), run_time=2.0)
         self.wait(3.5)
+
+
+
+#Asked AI for help        

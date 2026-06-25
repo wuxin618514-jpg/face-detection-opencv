@@ -25,3 +25,5 @@ consistent high recall (>97%) across all hard validation splits (dim light, extr
 feature pyramid multi-scale context aggregation. The minor rise in false positive rate originates from aggressive
 small-object anchor sampling to recover tiny distant human faces, a controllable precision-recall tradeoff configurable
 via confidence threshold tuning.
+
+#conclude by AI
